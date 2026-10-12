@@ -1,0 +1,479 @@
+
+/* ========================================
+   MATH OF THE ANDES — SDI CALCULATOR
+   ======================================== */
+
+:root {
+    --background: #f6f7f0;
+    --surface: #ffffff;
+    --surface-green: #e8eee3;
+    --sage: #82977b;
+    --sage-dark: #526b50;
+    --teal: #397b78;
+    --teal-dark: #285e5c;
+    --terracotta: #c77d60;
+    --terracotta-dark: #a95842;
+    --text: #29372f;
+    --text-muted: #68766b;
+    --border: #dce4d7;
+    --error-background: #fff0ed;
+    --error-border: #d66a56;
+    --error-text: #a9362b;
+    --shadow: 0 6px 24px rgba(48, 67, 49, 0.08);
+}
+
+/* General page styling */
+
+* {
+    box-sizing: border-box;
+}
+
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0 18px 45px;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Welcome banner */
+
+marquee {
+    display: block;
+    margin: 0 -18px;
+    padding: 9px 15px;
+    background-color: var(--sage-dark);
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+/* Main heading */
+
+h1 {
+    margin: 38px 0 8px;
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    line-height: 1.25;
+}
+
+h5 {
+    margin: 0 0 35px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/* Calculator container */
+
+fieldset {
+    width: min(850px, 100%);
+    margin: 0 auto;
+    padding: 30px 35px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+legend {
+    padding: 8px 18px;
+    border-radius: 8px;
+    background-color: var(--sage-dark);
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+fieldset > p:first-of-type {
+    margin-top: 5px;
+    color: var(--text-muted);
+    line-height: 1.85;
+}
+
+/* Species count row — your existing CSS retained */
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0 22px;
+}
+
+.flex p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Dropdowns and population inputs */
+
+select,
+input {
+    max-width: 100%;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid #cbd7c6;
+    border-radius: 8px;
+    background-color: #fbfcf8;
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.95rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+select {
+    cursor: pointer;
+}
+
+select:focus,
+input:focus {
+    border-color: var(--teal);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(57, 123, 120, 0.15);
+}
+
+select:disabled,
+input:disabled {
+    background-color: #edf0e9;
+    color: #788276;
+    cursor: not-allowed;
+}
+
+/* Keep your existing animal dropdown spacing */
+
+.animal_select {
+    margin-left: 10px;
+}
+
+/* Keep your existing species spacing */
+
+.species_div {
+    margin-top: 10px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: #f8faf5;
+    font-weight: 600;
+}
+
+/* Keep your existing population spacing */
+
+.population_div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: #f8faf5;
+    font-weight: 500;
+}
+
+.populationInput {
+    width: 180px;
+    margin-left: 10px;
+}
+
+.population_input {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Validation errors — high visibility */
+
+#error1,
+#error2 {
+    margin: 12px 0;
+    padding: 0;
+    color: var(--error-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+#error1:not(:empty),
+#error2:not(:empty) {
+    padding: 12px 15px;
+    border: 1px solid var(--error-border);
+    border-left: 5px solid var(--error-border);
+    border-radius: 8px;
+    background-color: var(--error-background);
+}
+
+/* Buttons */
+
+button {
+    display: inline-block;
+    min-height: 43px;
+    margin: 8px 8px 8px 0;
+    padding: 11px 19px;
+    border: none;
+    border-radius: 9px;
+    background-color: var(--teal);
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(39, 87, 83, 0.12);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--teal-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(39, 87, 83, 0.18);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid #a6c8c0;
+    outline-offset: 3px;
+}
+
+/* Confirm buttons */
+
+.confirm_animals,
+.confirm_population {
+    background-color: var(--sage-dark);
+}
+
+.confirm_animals:hover,
+.confirm_population:hover {
+    background-color: #40563e;
+}
+
+/* Calculate button */
+
+.calculate {
+    background-color: var(--terracotta);
+}
+
+.calculate:hover {
+    background-color: var(--terracotta-dark);
+}
+
+/* Explain button — your existing margin retained */
+
+.explain {
+    margin-top: 30px;
+    background-color: #e5eee6;
+    color: var(--sage-dark);
+    border: 1px solid #cbd9c8;
+    box-shadow: none;
+}
+
+.explain:hover {
+    background-color: #d7e5d7;
+    color: #354b34;
+}
+
+/* Reset button */
+
+.reset {
+    margin-top: 22px;
+    background-color: #f7e7e1;
+    color: #934d3b;
+    border: 1px solid #e7c9bd;
+    box-shadow: none;
+}
+
+.reset:hover {
+    background-color: #efd5ca;
+    color: #773a2c;
+}
+
+/* SDI result — your existing margin retained */
+
+.result {
+    margin: 28px 0 25px;
+    padding: 18px 20px;
+    border-left: 5px solid var(--sage);
+    border-radius: 0 10px 10px 0;
+    background-color: var(--surface-green);
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.result:empty {
+    display: none;
+}
+
+/* Explanation content */
+
+#explanation {
+    margin-top: 20px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: #f8faf5;
+}
+
+#explanation:empty {
+    display: none;
+}
+
+#explanation p {
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+#explanation img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+/* Worked example */
+
+pre {
+    max-width: 100%;
+    margin: 22px 0 0;
+    padding: 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#example {
+    margin: 0;
+    padding: 22px;
+    border: 1px solid #e5d8bd;
+    border-left: 5px solid var(--terracotta);
+    border-radius: 10px;
+    background-color: #fcf7ed;
+    color: #665644;
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+/* Selection highlight */
+
+::selection {
+    background-color: #d4e3cc;
+    color: var(--text);
+}
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+    body {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    marquee {
+        margin-right: -12px;
+        margin-left: -12px;
+    }
+
+    h1 {
+        margin-top: 28px;
+    }
+
+    fieldset {
+        padding: 22px 16px;
+        border-radius: 13px;
+    }
+
+    legend {
+        font-size: 1.1rem;
+    }
+
+    .species_div,
+    .population_div {
+        padding: 12px;
+    }
+
+    .animal_select {
+        margin: 8px 0 0;
+    }
+
+    .populationInput {
+        width: 100%;
+        margin: 5px 0 0;
+    }
+
+    button {
+        max-width: 100%;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .result {
+        font-size: 1.1rem;
+    }
+
+    #explanation,
+    #example {
+        padding: 15px;
+    }
+
+    .flex {
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .flex select,
+    .species_div select {
+        max-width: 100%;
+    }
+
+    button {
+        min-height: 44px;
+    }
+
+    .home {
+        max-width: 100%;
+        padding: 10px 16px;
+        margin: 12px 0;
+    }
+}
+
+.home {
+    display: inline-block;
+    background-color: #c75b50;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 15px 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.home:hover {
+    background-color: #a94339;
+    color: white;
+    transform: translateY(-2px);
+}

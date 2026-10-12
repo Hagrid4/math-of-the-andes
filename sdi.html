@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Simpson’s Diversity Index Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="Author" content="The Chinchillas">
+        <meta name="Description" content="This webpage contains the Simpson’s Diversity Index Calculator.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="chinchila.png" type="image/x-icon">
+        <link rel="stylesheet" href="sdi.css">
+    </head>
+    <body>
+        <em><marquee>Welcome to Our SDI Calculator</marquee></em>
+        <center>
+            <u><b><h1>Simpson's Diversity Index Calculator</h1></b></u>
+            <b><h5>By The Chinchillas</h5></b>
+        </center>
+        <fieldset>
+            <legend>SDI Calculator</legend>
+            <p>The <abbr title="Simpson’s Diversity Index">SDI</abbr> calculator will calculate the biodiversity of the Andes mountains based on the population of each animal present. Start by selecting the number of species present in the area.</p>
+            <br>
+            <div class="flex">
+                <p>Number of Species:</p> 
+                <select name="species_num" id="species_num" class="species_num">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                </select>
+            </div>
+            <div id="species_input" class="species_input"></div>
+            <p id="error1"></p>
+            <button id="confirm_animals" type="button" class="confirm_animals">Confirm Animals</button>
+            <div id="population_input" class="population_input"></div>
+            <p id="error2"></p>
+            <button id="confirm_population" class="confirm_population" type="button">Confirm Population</button>
+            <button id="calculate" class="calculate" type="button">Calculate SDI</button>
+            <p id="result" class="result"></p>
+            <button id="explain" class="explain" type="button">Simpson's Diversity Index Explained...?</button>
+            <div id="explanation"></div>
+            <pre>
+<p id="example">
+    For example, imagine there are 2 species: Chinchilla and Andean Condor.
+    <br>
+    For Numerator:
+    Population of Chinchilla = 13
+    Population of Andean Condor = 15
+    So n(n-1) for Chinchilla = 13(13-1) = 156
+    and n(n-1) for Andean Condor = 15(15-1) = 210
+    Hence the numerator will be: 210 + 156 = 366
+    <br>
+    For Denominator:
+    N = total population
+    N = 13 + 15 = 28
+    N(N-1) = 28(28-1) = 756
+    <br>
+    SDI = 1 - (366/756)
+        = 0.516 (to 3 decimal points)
+</p>
+            </pre>
+            <button id="reset" class="reset" type="button">Reset Calculator</button>
+        </fieldset>
+        <a href="index.html" class="home">Back to Home</a>
+        <script src="main.js"></script>
+    </body>
+</html>

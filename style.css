@@ -1,0 +1,218 @@
+
+/* ========================================
+   MATH OF THE ANDES — HOME PAGE
+   Colour palette: Ivory, Sage, Teal, Terracotta
+   ======================================== */
+
+:root {
+    --background: #f6f7f0;
+    --surface: #ffffff;
+    --surface-green: #e8eee3;
+    --sage: #82977b;
+    --sage-dark: #526b50;
+    --teal: #397b78;
+    --teal-dark: #285e5c;
+    --terracotta: #c77d60;
+    --text: #29372f;
+    --text-muted: #68766b;
+    --border: #dce4d7;
+    --shadow: 0 6px 24px rgba(48, 67, 49, 0.08);
+}
+
+/* General page styling */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Welcome banner */
+
+marquee {
+    display: block;
+    padding: 9px 15px;
+    background-color: var(--sage-dark);
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+/* Main heading */
+
+h1 {
+    margin: 45px 20px 8px;
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
+h5 {
+    margin: 0 0 35px;
+    color: var(--text-muted);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Decorative divider */
+
+hr {
+    width: min(180px, 40%);
+    height: 3px;
+    margin: 0 auto 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--terracotta);
+}
+
+/* Main content sections */
+
+section {
+    width: min(1050px, calc(100% - 40px));
+    margin: 30px auto;
+    padding: 32px 38px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+/* Alternate soft background for the calculator section */
+
+#SDI {
+    background-color: var(--surface-green);
+    border-color: #d5e0d0;
+}
+
+/* Section headings */
+
+h2 {
+    margin: 0 0 18px;
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.35;
+}
+
+#documentary h2 {
+    color: var(--teal-dark);
+    letter-spacing: 1px;
+}
+
+/* Paragraphs */
+
+section p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Links */
+
+a {
+    color: var(--teal-dark);
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--terracotta);
+}
+
+/* Make the SDI calculator link stand out */
+
+
+#SDI a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: var(--teal-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+#SDI a:hover {
+    background: none;
+    color: var(--terracotta-dark);
+    transform: none;
+}
+
+/* Documentary video */
+
+.vid {
+    display: block;
+    width: min(100%, 850px);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 28px auto 5px;
+    border: 4px solid var(--surface-green);
+    border-radius: 14px;
+    background-color: #e4e9df;
+    box-shadow: 0 8px 24px rgba(35, 54, 38, 0.12);
+}
+
+/* Selection highlight */
+
+::selection {
+    background-color: #d4e3cc;
+    color: var(--text);
+}
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+    h1 {
+        margin: 30px 12px 8px;
+        font-size: clamp(2rem, 8vw, 3rem);
+        overflow-wrap: anywhere;
+    }
+
+    section {
+        width: calc(100% - 32px);
+        box-sizing: border-box;
+        margin: 18px auto;
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    section p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .vid {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        border-width: 2px;
+    }
+}

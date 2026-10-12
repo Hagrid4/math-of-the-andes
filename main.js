@@ -157,6 +157,9 @@ explain.addEventListener("click", function() {
     const explain_para3 = document.createElement("p");
     explain_para3.textContent = "N = total population of all species";
     explanation.appendChild(explain_para3);
+    const explain_para4 = document.createElement("p");
+    explain_para4.textContent = "The value of D ranges from 0 to 1. With this index, 1 represents infinite diversity and 0 represents no diversity.";
+    explanation.appendChild(explain_para4);
     example.hidden = false;
     explain.hidden = true;
 });
